@@ -1,5 +1,4 @@
-package com.lineup;
-
+import javax.swing.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -7,12 +6,32 @@ import java.util.concurrent.atomic.AtomicInteger;
  */
 public class Controller {
 
-    //zero is too confusing for people
     private static final int LOWEST_NUMBER = 1;
     private final AtomicInteger currentNumber = new AtomicInteger();
+    ScreenOutput screen;
+    View view;
+
+
+    Controller() {
+        screen = new ScreenOutputImpl();
+//        view = new View();
+    }
 
     public static void main(String[] args) {
-        System.out.println("currentNumber is " + currentNumber.get());
+        System.out.println("hello world");
+
+        Controller controller = new Controller();
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                JFrame frame = new JFrame();
+                frame.setSize(500,500);
+                frame.setVisible(true);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            }
+        });
+
+
     }
 
     public void increment() {
@@ -23,6 +42,8 @@ public class Controller {
         }
 
         int incrementedNumber = currentNumber.incrementAndGet();
+
+//        screen
         //output.outputNumber(incrementedNumber);
     }
 
@@ -42,5 +63,9 @@ public class Controller {
 
     public void reset() {
         currentNumber.set(LOWEST_NUMBER);
+    }
+
+    private void newScreen() {
+
     }
 }
