@@ -14,7 +14,9 @@
 # Fill this out
 
 ## Functional Requirements
-- System must 
+- System must <have both total number and displaying number> 
+    -To show how many are in the business now on our website & to call a patient to a room.
+-
  
 
 ## Non-functional Requirements
