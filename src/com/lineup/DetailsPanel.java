@@ -1,10 +1,17 @@
 import javax.swing.*;
+import javax.swing.event.EventListenerList;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 /**
  * Created by Odin on 15-07-22.
  */
 public class DetailsPanel extends JPanel {
+
+    private static final long serialVersionUID = 1234567432L;
+
+    private EventListenerList listenerList = new EventListenerList();
 
     public DetailsPanel() {
         Dimension size = getPreferredSize();
@@ -18,10 +25,23 @@ public class DetailsPanel extends JPanel {
         JLabel nameLabel = new JLabel("Name: ");
         JLabel occupationLabel = new JLabel("Occupation: ");
 
-        JTextField nameField = new JTextField(10);
-        JTextField occupationField = new JTextField(10);
+        final JTextField nameField = new JTextField(10);
+        final JTextField occupationField = new JTextField(10);
 
         JButton addBtn = new JButton("Add");
+
+        addBtn.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                String name = nameField.getText();
+                String occupation = occupationField.getText();
+
+                String text = name + "  " + occupation + "\n";
+
+                fireDetailEvent(new DetailEvent(this, text));
+
+            }
+        });
 
         //lets you add controlls in conjunction with gridbag constraints
         setLayout(new GridBagLayout());
@@ -77,4 +97,26 @@ public class DetailsPanel extends JPanel {
 
 
     }
+
+    public void fireDetailEvent(DetailEvent event) {
+        Object[] listeners = listenerList.getListenerList();
+
+        for (int i = 0; i < listeners.length; i += 2) {
+            if (listeners[i] == DetailListener.class) {
+                ((DetailListener) listeners[i + 1]).detailEventOccured(event);
+            }
+        }
+    }
+
+    public void addDetailListener(DetailListener listener) {
+        listenerList.add(DetailListener.class, listener);
+
+    }
+
+    public void removeDetailListener(DetailListener listener) {
+        listenerList.remove(DetailListener.class, listener);
+
+    }
+
+
 }

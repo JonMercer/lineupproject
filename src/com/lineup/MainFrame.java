@@ -27,11 +27,19 @@ public class MainFrame extends JFrame {
 
 
         //Create swing Component
-        JTextArea textArea = new JTextArea();
-        JButton button = new JButton("Click Me");
+        final JTextArea textArea = new JTextArea();
 
 
         detailsPanel = new DetailsPanel();
+
+        detailsPanel.addDetailListener(new DetailListener(){
+            public void detailEventOccured(DetailEvent event) {
+
+                String text = event.getText();
+
+                textArea.append(text);
+            }
+        });
 
 
         // Add swing components to content panel
@@ -39,19 +47,8 @@ public class MainFrame extends JFrame {
         Container c = getContentPane();
 
         c.add(textArea, BorderLayout.CENTER);
-        c.add(button, BorderLayout.SOUTH);
         c.add(detailsPanel, BorderLayout.WEST);
 
-
-
-        //behaviour
-        button.addActionListener(new ActionListener() {
-            @Override
-            public void actionPerformed(ActionEvent e) {
-                //Called when button is clicked
-
-            }
-        });
 
     }
 }
