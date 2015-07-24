@@ -22,6 +22,7 @@
 
 # Fill this out
 1. functional
+  
   -BASIC: 
   -Count Up- When a patient signs in, the button up is pressed and total number goes up
   -Count Down- When a patient leaves after seeing the doctor, or misses their spot the total number goes down
