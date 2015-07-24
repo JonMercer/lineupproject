@@ -12,10 +12,9 @@
 		
 
 # Fill this out
-try do do as many as you can
 
 ## Functional Requirements
-- System must `<steve or dan, fill this out>`
+- System must 
  
 
 ## Non-functional Requirements
