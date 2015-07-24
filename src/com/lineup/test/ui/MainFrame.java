@@ -1,7 +1,7 @@
+package test.ui;
+
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 
 //https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html

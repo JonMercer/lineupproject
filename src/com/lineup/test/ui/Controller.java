@@ -1,3 +1,5 @@
+package test.ui;
+
 import javax.swing.*;
 import java.util.concurrent.atomic.AtomicInteger;
 
@@ -14,7 +16,7 @@ public class Controller {
 
     Controller() {
         screen = new ScreenOutputImpl();
-//        view = new View();
+//        view = new test.ui.View();
     }
 
     public static void main(String[] args) {

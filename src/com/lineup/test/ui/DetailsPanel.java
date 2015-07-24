@@ -1,3 +1,5 @@
+package test.ui;
+
 import javax.swing.*;
 import javax.swing.event.EventListenerList;
 import java.awt.*;
