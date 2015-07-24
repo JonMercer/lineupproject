@@ -29,7 +29,7 @@
   
   -Count Down- Pressed up to call 50,51,52 no one stands, when 51 walks back in after 53 has been called, the clerk must bring. 
   
-  -Print button- Counts 
+  -Print button- Machine keeps track of 2 numbers, current customer being served, and current number printed. 10 printed items 1 being served. Cloud keeps track. Make cloud smarter.
   
   -Timestamp- 
   
