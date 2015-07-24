@@ -23,7 +23,7 @@
 # Fill this out
 1. functional
   
-  -BASIC: 
+  **BASIC**
   -Count Up- When a patient signs in, the button up is pressed and total number goes up
   -Count Down- When a patient leaves after seeing the doctor, or misses their spot the total number goes down
   -Reset- To reset the machine after update or at the end of the day. Also resets total number.
