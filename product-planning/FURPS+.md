@@ -25,13 +25,15 @@
   
   **BASIC**
 
-  -Count Up- When a patient signs in, the button up is pressed and total number goes up
+  -Count Up- When a patient has been viewed, the button up is pressed and the clinic has seen 1 
   
-  -Count Down- When a patient leaves after seeing the doctor, or misses their spot the total number goes down
+  -Count Down- Pressed up to call 50,51,52 no one stands, when 51 walks back in after 53 has been called, the clerk must bring. 
+  
+  -Print button- Counts 
+  
+  -Timestamp- 
   
   -Reset- To reset the machine after update or at the end of the day. Also resets total number.
-  
-  -Count Down Trigger- When down button is pressed, the next patient will be called & displayed on screen
   
   -Update- Updates the newest version of the software to the machine
 
