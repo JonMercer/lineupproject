@@ -31,6 +31,7 @@
   
   -Reset- To reset the machine after update or at the end of the day. Also resets total number.
   
+  -Count Down Trigger- When down button is pressed, the next patient will be called & displayed on screen
   
   -Update- Updates the newest version of the software to the machine
 
