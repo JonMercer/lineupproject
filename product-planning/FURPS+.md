@@ -25,10 +25,10 @@
   
   **BASIC**
 
-  -Count Up- When a patient signs in, the button up is pressed and total number goes up
-  -Count Down- When a patient leaves after seeing the doctor, or misses their spot the total number goes down
-  -Reset- To reset the machine after update or at the end of the day. Also resets total number.
-  -Update- Updates the newest version of the software to the machine
+  -Count Up When a patient signs in, the button up is pressed and total number goes up
+  -Count Down** When a patient leaves after seeing the doctor, or misses their spot the total number goes down
+  -Reset To reset the machine after update or at the end of the day. Also resets total number.
+  -Update Updates the newest version of the software to the machine
 
   -Calender- When checking in from the app, open a secondary tab to view what special events this business may have coming up.these events may be added via login on our site or linked through fb
 
