@@ -17,6 +17,9 @@ public class MainFrame extends JFrame {
     private static final String BUTTON_PRINT_LABEL = "print";
     private static final String BUTTON_RESET_LABEL = "reset";
 
+    private Integer testNum = 0;
+    private JLabel numberLabel = new JLabel(testNum.toString());
+
 
 //    https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
 //    http://da2i.univ-lille1.fr/doc/tutorial-java/ui/features/components.html
@@ -28,8 +31,8 @@ public class MainFrame extends JFrame {
         setLayout(new BorderLayout());
 
         //create swing component.
-        final JLabel numberLabel = new JLabel("50");
-        numberLabel.setSize(40, 40);
+//        final JLabel numberLabel = new JLabel("50");
+//        numberLabel.setSize(40, 40);
 
         JButton downButton = new JButton(BUTTON_DOWN_LABEL);
         JButton upButton = new JButton(BUTTON_UP_LABEL);
@@ -47,11 +50,39 @@ public class MainFrame extends JFrame {
 
 
         //annonymous class
-        downButton.addActionListener(new ActionListener(){
+        upButton.addActionListener(new ActionListener(){
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                numberLabel.setText("49");
+                numberLabel.setText((++testNum).toString());
+            }
+        });
+
+        //annonymous class
+        downButton.addActionListener(new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                numberLabel.setText((--testNum).toString());
+            }
+        });
+
+        //annonymous class
+        resetButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                testNum = 0;
+                numberLabel.setText((testNum).toString());
+            }
+        });
+
+        //annonymous class
+        printButton.addActionListener(new ActionListener(){
+
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.out.println("Your number is "+ (testNum + 1));
             }
         });
 
