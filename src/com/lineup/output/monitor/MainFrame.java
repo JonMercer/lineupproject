@@ -1,3 +1,7 @@
+package output.monitor;
+
+import controller.Controller;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -24,7 +28,7 @@ public class MainFrame extends JFrame {
 //    https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
 //    http://da2i.univ-lille1.fr/doc/tutorial-java/ui/features/components.html
 
-    public MainFrame(String title) {
+    public MainFrame(String title, final Controller controller) {
         super(title);
 
         // Set layout manager. 5 panes, one in centre
@@ -54,7 +58,8 @@ public class MainFrame extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                numberLabel.setText((++testNum).toString());
+//                numberLabel.setText((++testNum).toString());
+                numberLabel.setText(controller.increment().toString());
             }
         });
 
@@ -63,7 +68,8 @@ public class MainFrame extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                numberLabel.setText((--testNum).toString());
+//                numberLabel.setText((--testNum).toString());
+                numberLabel.setText(controller.decrement().toString());
             }
         });
 
@@ -72,8 +78,8 @@ public class MainFrame extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                testNum = 0;
-                numberLabel.setText((testNum).toString());
+//                numberLabel.setText((testNum).toString());
+                numberLabel.setText(controller.reset().toString());
             }
         });
 
@@ -82,7 +88,8 @@ public class MainFrame extends JFrame {
 
             @Override
             public void actionPerformed(ActionEvent e) {
-                System.out.println("Your number is "+ (testNum + 1));
+//                System.out.println("Your number is "+ (testNum + 1));
+                System.out.println("Your number is " + controller.print().toString());
             }
         });
 

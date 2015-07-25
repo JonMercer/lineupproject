@@ -1,3 +1,7 @@
+import controller.Controller;
+import controller.ControllerImpl;
+import output.monitor.MainFrame;
+
 import javax.swing.*;
 
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
@@ -13,6 +17,8 @@ public class Main {
     private final String NAME_OF_APP = "LineUp";
     private final int WINDOW_WIDTH = 500;
     private final int WINDOW_HEIGHT = 500;
+
+    private Controller controller = new ControllerImpl();
 
     private Main() {
         System.out.println("hello world");
@@ -34,7 +40,7 @@ public class Main {
             @Override
             public void run() {
                 //Main window of application. Only one per swing program
-                JFrame frame = new MainFrame(NAME_OF_APP);
+                JFrame frame = new MainFrame(NAME_OF_APP, controller);
 
                 //sets the frame to be visible
                 frame.setVisible(true);
