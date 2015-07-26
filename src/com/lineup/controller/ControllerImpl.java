@@ -4,7 +4,7 @@ import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Controls all logic of button presses.
- * 
+ *
  * Created by Jon Mercer on 15-07-25.
  */
 public class ControllerImpl implements Controller {
