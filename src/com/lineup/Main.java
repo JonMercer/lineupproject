@@ -1,6 +1,6 @@
 import controller.Controller;
 import controller.ControllerImpl;
-import output.monitor.MainFrame;
+import output.monitor.frame.MainFrame;
 
 import javax.swing.*;
 
