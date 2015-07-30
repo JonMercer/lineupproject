@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * A panel we'll be adding gridbag layout ro
+ * Right hand panel displaying rooms.
  * Created by Jon Mercer on 15-07-28.
  */
 public class RoomPanel extends JPanel {

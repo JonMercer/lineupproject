@@ -6,6 +6,7 @@ import java.awt.*;
 //How to set the font size: http://stackoverflow.com/questions/2715118/how-to-change-the-size-of-the-font-of-a-jlabel-to-take-the-maximum-size
 
 /**
+ * Panel on the left side of the app.
  * Created by Jon Mercer on 15-07-28.
  */
 public class NumberPanel extends JPanel {

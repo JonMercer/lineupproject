@@ -6,6 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 /**
+ * Bottom panel that will only show up on toggle. For debugging purposes.
  * Created by Jon Mercer on 15-07-28.
  */
 public class ButtonPanel extends JPanel {

@@ -1,5 +1,8 @@
 package output.monitor.frame;
 
+//    https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
+//    http://da2i.univ-lille1.fr/doc/tutorial-java/ui/features/components.html
+
 import controller.Controller;
 import output.monitor.panel.ButtonPanel;
 import output.monitor.panel.NumberPanel;
@@ -20,47 +23,21 @@ import java.awt.event.ActionListener;
  */
 public class MainFrame extends JFrame {
 
-    private Integer testNum = 0;
-    private JLabel numberLabel = new JLabel(testNum.toString());
-
-    private RoomPanel roomPanel;
-    private NumberPanel numberPanel;
-    private ButtonPanel buttonPanel;
-
-
-//    https://docs.oracle.com/javase/tutorial/uiswing/layout/visual.html
-//    http://da2i.univ-lille1.fr/doc/tutorial-java/ui/features/components.html
+    private RoomPanel roomPanel = new RoomPanel();
+    private NumberPanel numberPanel = new NumberPanel();
+    private ButtonPanel buttonPanel = new ButtonPanel();
 
     public MainFrame(String title, final Controller controller) {
         super(title);
 
-        // Set layout manager. 5 panes, one in centre
+        // Set layout manager. BorderLayout = 5 panes, one in centre
         setLayout(new BorderLayout());
 
-        //create swing component.
-//        final JLabel numberLabel = new JLabel("50");
-//        numberLabel.setSize(40, 40);
-
-
-        roomPanel = new RoomPanel();
-        numberPanel = new NumberPanel();
-        buttonPanel = new ButtonPanel();
-
-        //add swing component to content pane.
+        //add swing components to content pane.
         Container container = getContentPane();
 
-//        container.add(numberLabel, BorderLayout.WEST);
-//        container.add(downButton, BorderLayout.PAGE_END);
-//        container.add(upButton, BorderLayout.PAGE_START);
-//        container.add(printButton, BorderLayout.LINE_START);
-//        container.add(resetButton, BorderLayout.LINE_END);
         container.add(roomPanel, BorderLayout.CENTER);
         container.add(numberPanel, BorderLayout.WEST);
         container.add(buttonPanel, BorderLayout.SOUTH);
-
-
-
-
-
     }
 }
