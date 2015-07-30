@@ -1,5 +1,6 @@
 package output.monitor.panel;
 
+import output.monitor.AllButtons;
 import output.monitor.eventHandler.ButtonEvent;
 import output.monitor.eventHandler.ButtonListener;
 
@@ -14,15 +15,6 @@ import java.awt.event.ActionListener;
  * Created by Jon Mercer on 15-07-28.
  */
 public class ButtonPanel extends JPanel {
-    private static final String BUTTON_DOWN_LABEL = "down";
-    private static final String BUTTON_ROOM_1_LABEL = "R1";
-    private static final String BUTTON_ROOM_2_LABEL = "R2";
-    private static final String BUTTON_ROOM_3_LABEL = "R3";
-    private static final String BUTTON_ROOM_4_LABEL = "R4";
-    private static final String BUTTON_ROOM_5_LABEL = "R5";
-    private static final String BUTTON_ROOM_6_LABEL = "R6";
-    private static final String BUTTON_PRINT_LABEL = "print";
-    private static final String BUTTON_RESET_LABEL = "reset";
 
     //Creating list of events, becasue multiple events are queued?
     private EventListenerList listenerList = new EventListenerList();
@@ -35,21 +27,20 @@ public class ButtonPanel extends JPanel {
 
         setBorder(BorderFactory.createTitledBorder("Button Panel"));
 
-        JButton downButton = new JButton(BUTTON_DOWN_LABEL);
-        JButton room1 = new JButton(BUTTON_ROOM_1_LABEL);
-        JButton room2 = new JButton(BUTTON_ROOM_2_LABEL);
-        JButton room3 = new JButton(BUTTON_ROOM_3_LABEL);
-        JButton room4 = new JButton(BUTTON_ROOM_4_LABEL);
-        JButton room5 = new JButton(BUTTON_ROOM_5_LABEL);
-        JButton room6 = new JButton(BUTTON_ROOM_6_LABEL);
-        JButton printButton = new JButton(BUTTON_PRINT_LABEL);
-        JButton resetButton = new JButton(BUTTON_RESET_LABEL);
-
+        JButton downButton = new JButton(AllButtons.DOWN.getLabelName());
+        JButton room1 = new JButton(AllButtons.R1.getLabelName());
+        JButton room2 = new JButton(AllButtons.R2.getLabelName());
+        JButton room3 = new JButton(AllButtons.R3.getLabelName());
+        JButton room4 = new JButton(AllButtons.R4.getLabelName());
+        JButton room5 = new JButton(AllButtons.R5.getLabelName());
+        JButton room6 = new JButton(AllButtons.R6.getLabelName());
+        JButton printButton = new JButton(AllButtons.PRINT.getLabelName());
+        JButton resetButton = new JButton(AllButtons.RESET.getLabelName());
 
         printButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fireButtonEvent(new ButtonEvent(this, BUTTON_PRINT_LABEL));
+                fireButtonEvent(new ButtonEvent(this, AllButtons.PRINT.getLabelName()));
             }
         });
 

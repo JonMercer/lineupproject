@@ -37,8 +37,7 @@ public class MainFrame extends JFrame {
         //Anonymous class
         buttonPanel.addButtonListener(new ButtonListener() {
             public void buttonEventOccurred(ButtonEvent event) {
-                String text = event.getText();
-                numberPanel.setText(text);
+                filterWhatButtonIsPressed(event.getText());
             }
         });
 
@@ -48,5 +47,9 @@ public class MainFrame extends JFrame {
         container.add(roomPanel, BorderLayout.CENTER);
         container.add(numberPanel, BorderLayout.WEST);
         container.add(buttonPanel, BorderLayout.SOUTH);
+    }
+
+    private void filterWhatButtonIsPressed(String buttonLabel) {
+        System.out.println(buttonLabel);
     }
 }
