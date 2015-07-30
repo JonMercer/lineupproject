@@ -20,7 +20,7 @@ public class NumberPanel extends JPanel {
         setBorder(BorderFactory.createTitledBorder("NumberLabel"));
 
 
-        numberLabel = new JLabel("50");
+        numberLabel = new JLabel("0");
 
         numberLabel.setFont(new Font("Serif", Font.PLAIN, 100));
 

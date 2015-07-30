@@ -4,6 +4,7 @@ package output.monitor.frame;
 //    http://da2i.univ-lille1.fr/doc/tutorial-java/ui/features/components.html
 
 import controller.Controller;
+import output.monitor.AllButtons;
 import output.monitor.eventHandler.ButtonEvent;
 import output.monitor.eventHandler.ButtonListener;
 import output.monitor.panel.ButtonPanel;
@@ -12,6 +13,8 @@ import output.monitor.panel.RoomPanel;
 
 import javax.swing.*;
 import java.awt.*;
+
+import static output.monitor.AllButtons.*;
 
 /**
  * Our custom version of JFrame.
@@ -27,8 +30,12 @@ public class MainFrame extends JFrame {
     private NumberPanel numberPanel = new NumberPanel();
     private ButtonPanel buttonPanel = new ButtonPanel();
 
+    private Controller controller;
+
     public MainFrame(String title, final Controller controller) {
         super(title);
+
+        this.controller = controller;
 
         // Set layout manager. BorderLayout = 5 panes, one in centre
         setLayout(new BorderLayout());
@@ -37,7 +44,7 @@ public class MainFrame extends JFrame {
         //Anonymous class
         buttonPanel.addButtonListener(new ButtonListener() {
             public void buttonEventOccurred(ButtonEvent event) {
-                filterWhatButtonIsPressed(event.getText());
+                filterWhatButtonWasPressed(event.getButton());
             }
         });
 
@@ -49,7 +56,76 @@ public class MainFrame extends JFrame {
         container.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void filterWhatButtonIsPressed(String buttonLabel) {
-        System.out.println(buttonLabel);
+    private void filterWhatButtonWasPressed(AllButtons buttonLabel) {
+        switch (buttonLabel) {
+            case DOWN:
+                decrementCounter();
+                break;
+            case PRINT:
+                printTicket();
+                break;
+            case RESET:
+                resetCounterAndRooms();
+                break;
+            case R1:
+                updateCounterAndRoom(1);
+                break;
+            case R2:
+                updateCounterAndRoom(2);
+                break;
+            case R3:
+                updateCounterAndRoom(3);
+                break;
+            case R4:
+                updateCounterAndRoom(4);
+                break;
+            case R5:
+                updateCounterAndRoom(5);
+                break;
+            case R6:
+                updateCounterAndRoom(6);
+                break;
+            case R7:
+                updateCounterAndRoom(7);
+                break;
+            case R8:
+                updateCounterAndRoom(8);
+                break;
+            case R9:
+                updateCounterAndRoom(9);
+                break;
+            case R10:
+                updateCounterAndRoom(10);
+                break;
+            default:
+                System.err.println("Button Does not Exist");
+
+        }
+    }
+
+    private void printTicket() {
+        Integer printNumber = controller.print();
+
+        System.out.println("Printed number is: " + printNumber.toString());
+    }
+
+    private void updateCounterAndRoom(int roomNum) {
+        Integer roomSectionToPopulate = this.controller.getNextRoomSectionToPopulate();
+        Integer counterNumber = this.controller.increment();
+
+        numberPanel.setText(counterNumber.toString());
+        //TODO: update room
+    }
+
+    private void resetCounterAndRooms() {
+        Integer counterNumber = this.controller.reset();
+
+        numberPanel.setText(counterNumber.toString());
+        //TODO: reset rooms too
+    }
+
+    private void decrementCounter() {
+        Integer counterNumber = this.controller.decrement();
+        numberPanel.setText(counterNumber.toString());
     }
 }

@@ -1,5 +1,7 @@
 package output.monitor.eventHandler;
 
+import output.monitor.AllButtons;
+
 import java.util.EventObject;
 
 /**
@@ -7,21 +9,22 @@ import java.util.EventObject;
  */
 public class ButtonEvent extends EventObject {
 
-    private String text;
+    private AllButtons button;
 
     /**
      * Constructs a prototypical Event.
      *
      * @param source The object on which the Event initially occurred.
+     * @param button
      * @throws IllegalArgumentException if source is null.
      */
-    public ButtonEvent(Object source, String text) {
+    public ButtonEvent(Object source, AllButtons button) {
         super(source);
 
-        this.text = text;
+        this.button = button;
     }
 
-    public String getText() {
-        return text;
+    public AllButtons getButton() {
+        return button;
     }
 }

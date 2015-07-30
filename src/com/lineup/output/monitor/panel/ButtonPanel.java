@@ -40,10 +40,65 @@ public class ButtonPanel extends JPanel {
         printButton.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                fireButtonEvent(new ButtonEvent(this, AllButtons.PRINT.getLabelName()));
+                fireButtonEvent(new ButtonEvent(this, AllButtons.PRINT));
             }
         });
 
+        downButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, AllButtons.DOWN));
+            }
+        });
+
+        resetButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, AllButtons.RESET));
+            }
+        });
+
+        room1.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, AllButtons.R1));
+            }
+        });
+
+        room2.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, AllButtons.R2));
+            }
+        });
+
+        room3.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, AllButtons.R3));
+            }
+        });
+
+        room4.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, AllButtons.R4));
+            }
+        });
+
+        room5.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, AllButtons.R5));
+            }
+        });
+
+        room6.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, AllButtons.R6));
+            }
+        });
 
         setLayout(new GridBagLayout());
 

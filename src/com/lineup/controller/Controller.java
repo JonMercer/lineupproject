@@ -33,4 +33,6 @@ public interface Controller {
     * @return: the number to print
     * */
     public Integer print();
+
+    int getNextRoomSectionToPopulate();
 }

@@ -59,4 +59,9 @@ public class ControllerImpl implements Controller {
         }
         return printNumber.incrementAndGet();
     }
+
+    @Override
+    public int getNextRoomSectionToPopulate() {
+        return 0;
+    }
 }
