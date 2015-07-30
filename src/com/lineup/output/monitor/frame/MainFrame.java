@@ -4,16 +4,14 @@ package output.monitor.frame;
 //    http://da2i.univ-lille1.fr/doc/tutorial-java/ui/features/components.html
 
 import controller.Controller;
-import output.monitor.ButtonEvent;
-import output.monitor.ButtonListener;
+import output.monitor.eventHandler.ButtonEvent;
+import output.monitor.eventHandler.ButtonListener;
 import output.monitor.panel.ButtonPanel;
 import output.monitor.panel.NumberPanel;
 import output.monitor.panel.RoomPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  * Our custom version of JFrame.

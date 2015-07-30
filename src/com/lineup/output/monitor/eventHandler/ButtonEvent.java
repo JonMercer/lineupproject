@@ -1,4 +1,4 @@
-package output.monitor;
+package output.monitor.eventHandler;
 
 import java.util.EventObject;
 

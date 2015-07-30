@@ -1,7 +1,7 @@
 package output.monitor.panel;
 
-import output.monitor.ButtonEvent;
-import output.monitor.ButtonListener;
+import output.monitor.eventHandler.ButtonEvent;
+import output.monitor.eventHandler.ButtonListener;
 
 import javax.swing.*;
 import javax.swing.event.EventListenerList;
