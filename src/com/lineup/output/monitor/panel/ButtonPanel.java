@@ -1,6 +1,10 @@
 package output.monitor.panel;
 
+import output.monitor.ButtonEvent;
+import output.monitor.ButtonListener;
+
 import javax.swing.*;
+import javax.swing.event.EventListenerList;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -20,6 +24,9 @@ public class ButtonPanel extends JPanel {
     private static final String BUTTON_PRINT_LABEL = "print";
     private static final String BUTTON_RESET_LABEL = "reset";
 
+    //Creating list of events, becasue multiple events are queued?
+    private EventListenerList listenerList = new EventListenerList();
+
     public ButtonPanel() {
         Dimension size = getPreferredSize();
         size.width = 250;
@@ -37,6 +44,15 @@ public class ButtonPanel extends JPanel {
         JButton room6 = new JButton(BUTTON_ROOM_6_LABEL);
         JButton printButton = new JButton(BUTTON_PRINT_LABEL);
         JButton resetButton = new JButton(BUTTON_RESET_LABEL);
+
+
+        printButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                fireButtonEvent(new ButtonEvent(this, BUTTON_PRINT_LABEL));
+            }
+        });
+
 
         setLayout(new GridBagLayout());
 
@@ -83,46 +99,35 @@ public class ButtonPanel extends JPanel {
 
 
 
+//        //old way to actions
+//        room1.addActionListener(new ActionListener(){
+//
+//            @Override
+//            public void actionPerformed(ActionEvent e) {
+////                numberLabel.setText((++testNum).toString());
+////                numberLabel.setText(controller.increment().toString());
+//            }
+//        });
+    }
 
+    public void fireButtonEvent(ButtonEvent event) {
+        Object[] listeners = listenerList.getListenerList();
 
-        //annonymous class
-        room1.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                numberLabel.setText((++testNum).toString());
-//                numberLabel.setText(controller.increment().toString());
+        //step two at a time because the first of pair of items is ButtonListener class
+        for (int i = 0; i < listeners.length; i += 2) {
+            if (listeners[i] == ButtonListener.class) {
+                ((ButtonListener)listeners[i+1]).buttonEventOccurred(event);
             }
-        });
+        }
+    }
 
-        //annonymous class
-        downButton.addActionListener(new ActionListener() {
+    public void addButtonListener(ButtonListener listener) {
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                numberLabel.setText((--testNum).toString());
-//                numberLabel.setText(controller.decrement().toString());
-            }
-        });
+        listenerList.add(ButtonListener.class, listener);
 
-        //annonymous class
-        resetButton.addActionListener(new ActionListener(){
+    }
 
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                numberLabel.setText((testNum).toString());
-//                numberLabel.setText(controller.reset().toString());
-            }
-        });
-
-        //annonymous class
-        printButton.addActionListener(new ActionListener(){
-
-            @Override
-            public void actionPerformed(ActionEvent e) {
-//                System.out.println("Your number is "+ (testNum + 1));
-//                System.out.println("Your number is " + controller.print().toString());
-            }
-        });
+    public void removeButtonListener(ButtonListener listener) {
+        listenerList.remove(ButtonListener.class, listener);
     }
 }

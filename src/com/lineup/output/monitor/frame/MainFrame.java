@@ -4,6 +4,8 @@ package output.monitor.frame;
 //    http://da2i.univ-lille1.fr/doc/tutorial-java/ui/features/components.html
 
 import controller.Controller;
+import output.monitor.ButtonEvent;
+import output.monitor.ButtonListener;
 import output.monitor.panel.ButtonPanel;
 import output.monitor.panel.NumberPanel;
 import output.monitor.panel.RoomPanel;
@@ -32,6 +34,15 @@ public class MainFrame extends JFrame {
 
         // Set layout manager. BorderLayout = 5 panes, one in centre
         setLayout(new BorderLayout());
+
+        //The opposite of addactionListener
+        //Anonymous class
+        buttonPanel.addButtonListener(new ButtonListener() {
+            public void buttonEventOccurred(ButtonEvent event) {
+                String text = event.getText();
+                numberPanel.setText(text);
+            }
+        });
 
         //add swing components to content pane.
         Container container = getContentPane();

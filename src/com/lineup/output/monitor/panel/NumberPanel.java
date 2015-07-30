@@ -10,6 +10,7 @@ import java.awt.*;
  * Created by Jon Mercer on 15-07-28.
  */
 public class NumberPanel extends JPanel {
+    JLabel numberLabel;
 
     public NumberPanel() {
         Dimension size = getPreferredSize();
@@ -18,7 +19,8 @@ public class NumberPanel extends JPanel {
 
         setBorder(BorderFactory.createTitledBorder("NumberLabel"));
 
-        JLabel numberLabel = new JLabel("50");
+
+        numberLabel = new JLabel("50");
 
         numberLabel.setFont(new Font("Serif", Font.PLAIN, 100));
 
@@ -33,5 +35,9 @@ public class NumberPanel extends JPanel {
 
         add(numberLabel, constraints);
 
+    }
+
+    public void setText(String text) {
+        numberLabel.setText(text);
     }
 }
