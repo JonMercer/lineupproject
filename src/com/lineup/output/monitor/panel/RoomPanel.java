@@ -9,7 +9,14 @@ import java.awt.*;
  */
 public class RoomPanel extends JPanel {
 
-    private static final int FONT_SIZE = 30;
+    private static final int FONT_SIZE = 50;
+
+    JLabel topLeft = new JLabel();
+    JLabel topRight = new JLabel();
+    JLabel midLeft = new JLabel();
+    JLabel midRight = new JLabel();
+    JLabel lowLeft = new JLabel();
+    JLabel lowRight = new JLabel();
 
     public RoomPanel() {
         Dimension size = getPreferredSize();
@@ -18,18 +25,12 @@ public class RoomPanel extends JPanel {
 
         setBorder(BorderFactory.createTitledBorder("RoomPanel"));
 
-        JLabel topLeft = new JLabel("49");
-        JLabel topRight = new JLabel("Room 5");
         topLeft.setFont(new Font("Serif", Font.PLAIN, FONT_SIZE));
         topRight.setFont(new Font("Serif", Font.PLAIN, FONT_SIZE));
 
-        JLabel midLeft = new JLabel("50");
-        JLabel midRight = new JLabel("Room 3");
         midLeft.setFont(new Font("Serif", Font.PLAIN, FONT_SIZE));
         midRight.setFont(new Font("Serif", Font.PLAIN, FONT_SIZE));
 
-        JLabel lowLeft = new JLabel("48");
-        JLabel lowRight = new JLabel("Room 1");
         lowLeft.setFont(new Font("Serif", Font.PLAIN, FONT_SIZE));
         lowRight.setFont(new Font("Serif", Font.PLAIN, FONT_SIZE));
 
@@ -64,5 +65,19 @@ public class RoomPanel extends JPanel {
         add(lowRight, constraints);
     }
 
+    public void setFirstRow(String counter, String room) {
+        topLeft.setText(counter);
+        topRight.setText(room);
+    }
 
+
+    public void setSecondRow(String counter, String room) {
+        midLeft.setText(counter);
+        midRight.setText(room);
+    }
+
+    public void setThirdRow(String counter, String room) {
+        lowLeft.setText(counter);
+        lowRight.setText(room);
+    }
 }

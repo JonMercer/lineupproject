@@ -14,6 +14,7 @@ import output.monitor.panel.RoomPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 import java.util.Iterator;
 
 import static output.monitor.AllButtons.*;
@@ -115,16 +116,24 @@ public class MainFrame extends JFrame {
         Integer counterNumber = this.controller.increment();
         numberPanel.setText(counterNumber.toString());
 
-        Iterator<Pair> pairIterator = this.controller.roomButtonPressed(counterNumber, roomNum);
-
-        int numberOfRooms = 0;
-        while (pairIterator.hasNext() && numberOfRooms < 3) {
-            System.out.println(pairIterator.next());
-            numberOfRooms++;
-
+        Object[] pairs = this.controller.roomButtonPressed(counterNumber, roomNum);
+        
+        for (int i = 0; i < pairs.length; i++) {
+            Pair pair = (Pair) pairs[i];
+            switch (i) {
+                case 0:
+                    roomPanel.setFirstRow(pair.getLeft().toString(), " Room:" + pair.getRight().toString());
+                    break;
+                case 1:
+                    roomPanel.setSecondRow(pair.getLeft().toString(), " Room:" + pair.getRight().toString());
+                    break;
+                case 2:
+                    roomPanel.setThirdRow(pair.getLeft().toString(), " Room:" + pair.getRight().toString());
+                    break;
+                default:
+                    i = pairs.length;
+            }
         }
-
-        System.out.println("+++++");
     }
 
     private void resetCounterAndRooms() {

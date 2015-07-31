@@ -2,7 +2,6 @@ package controller;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
-import java.util.Iterator;
 import java.util.concurrent.atomic.AtomicInteger;
 
 /**
@@ -23,6 +22,7 @@ public class ControllerImpl implements Controller {
     public ControllerImpl() {
         screenNumber = new AtomicInteger(INITIAL_NUMBER);
         printNumber = new AtomicInteger(INITIAL_NUMBER);
+//        fillDequeWithZeros();
     }
 
     @Override
@@ -66,7 +66,7 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
-    public Iterator<Pair> roomButtonPressed(int screenNum, int roomNum) {
+    public Object[] roomButtonPressed(int screenNum, int roomNum) {
 
         Pair<Integer, Integer> roomPair = new Pair<Integer, Integer>(screenNum, roomNum);
 
@@ -76,6 +76,14 @@ public class ControllerImpl implements Controller {
             arrayDeque.removeLast();
         }
 
-        return arrayDeque.iterator();
+        return arrayDeque.toArray();
+    }
+
+    private void fillDequeWithZeros() {
+        for (int i = 0; i < 3; i++) {
+            Pair<Integer, Integer> zeroPair = new Pair<Integer, Integer>(0, 0);
+            arrayDeque.push(zeroPair);
+
+        }
     }
 }

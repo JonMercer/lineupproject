@@ -36,5 +36,5 @@ public interface Controller {
     * */
     public Integer print();
 
-    Iterator<Pair> roomButtonPressed(int screenNum, int roomNum);
+    Object[] roomButtonPressed(int screenNum, int roomNum);
 }
