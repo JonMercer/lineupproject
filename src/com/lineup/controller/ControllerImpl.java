@@ -41,8 +41,11 @@ public class ControllerImpl implements Controller {
 
     @Override
     public Integer decrement() {
-        if (screenNumber.get() <= INITIAL_NUMBER) {
+        if (screenNumber.get() == INITIAL_NUMBER && arrayDeque.size() == 0) {
             screenNumber.set(INITIAL_NUMBER);
+            return screenNumber.get();
+        } else if (screenNumber.get() == 1 && arrayDeque.size() != 1) {
+            screenNumber.set(MAX_NUMBER);
             return screenNumber.get();
         }
 
@@ -53,6 +56,10 @@ public class ControllerImpl implements Controller {
     public Integer reset() {
         screenNumber.set(INITIAL_NUMBER);
         printNumber.set(INITIAL_NUMBER);
+
+        while(arrayDeque.size() != 0) {
+            arrayDeque.remove();
+        }
         return screenNumber.get();
     }
 
@@ -79,11 +86,12 @@ public class ControllerImpl implements Controller {
         return arrayDeque.toArray();
     }
 
-    private void fillDequeWithZeros() {
-        for (int i = 0; i < 3; i++) {
-            Pair<Integer, Integer> zeroPair = new Pair<Integer, Integer>(0, 0);
-            arrayDeque.push(zeroPair);
-
+    @Override
+    public Object[] decrementButtonPressed() {
+        if (arrayDeque.size() > 0) {
+            arrayDeque.pop();
         }
+        return arrayDeque.toArray();
     }
+
 }

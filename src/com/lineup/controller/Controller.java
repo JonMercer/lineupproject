@@ -37,4 +37,6 @@ public interface Controller {
     public Integer print();
 
     Object[] roomButtonPressed(int screenNum, int roomNum);
+
+    Object[] decrementButtonPressed();
 }

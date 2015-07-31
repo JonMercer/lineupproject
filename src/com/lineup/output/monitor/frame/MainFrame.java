@@ -118,6 +118,22 @@ public class MainFrame extends JFrame {
 
         Object[] pairs = this.controller.roomButtonPressed(counterNumber, roomNum);
 
+        setRoomText(pairs);
+    }
+
+    private void setRoomText(Object[] pairs) {
+
+        if(pairs.length == 0) {
+            roomPanel.setFirstRow("", "");
+            roomPanel.setSecondRow("", "");
+            roomPanel.setThirdRow("", "");
+        }else if (pairs.length == 1) {
+            roomPanel.setSecondRow("", "");
+            roomPanel.setThirdRow("", "");
+        } else if (pairs.length == 2) {
+            roomPanel.setThirdRow("", "");
+        }
+
         for (int i = 0; i < pairs.length; i++) {
             Pair pair = (Pair) pairs[i];
             switch (i) {
@@ -149,6 +165,9 @@ public class MainFrame extends JFrame {
     private void decrementCounter() {
         Integer counterNumber = this.controller.decrement();
         numberPanel.setText(counterNumber.toString());
-        //TODO: room state back to previous
+
+        Object[] pairs = this.controller.decrementButtonPressed();
+        setRoomText(pairs);
+
     }
 }
