@@ -117,7 +117,7 @@ public class MainFrame extends JFrame {
         numberPanel.setText(counterNumber.toString());
 
         Object[] pairs = this.controller.roomButtonPressed(counterNumber, roomNum);
-        
+
         for (int i = 0; i < pairs.length; i++) {
             Pair pair = (Pair) pairs[i];
             switch (i) {
@@ -140,7 +140,10 @@ public class MainFrame extends JFrame {
         Integer counterNumber = this.controller.reset();
 
         numberPanel.setText(counterNumber.toString());
-        //TODO: reset rooms too
+
+        roomPanel.setFirstRow("", "");
+        roomPanel.setSecondRow("", "");
+        roomPanel.setThirdRow("", "");
     }
 
     private void decrementCounter() {
