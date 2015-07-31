@@ -4,6 +4,7 @@ package output.monitor.frame;
 //    http://da2i.univ-lille1.fr/doc/tutorial-java/ui/features/components.html
 
 import controller.Controller;
+import controller.Pair;
 import output.monitor.AllButtons;
 import output.monitor.eventHandler.ButtonEvent;
 import output.monitor.eventHandler.ButtonListener;
@@ -13,6 +14,7 @@ import output.monitor.panel.RoomPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.Iterator;
 
 import static output.monitor.AllButtons.*;
 
@@ -110,11 +112,19 @@ public class MainFrame extends JFrame {
     }
 
     private void updateCounterAndRoom(int roomNum) {
-        Integer roomSectionToPopulate = this.controller.getNextRoomSectionToPopulate();
         Integer counterNumber = this.controller.increment();
-
         numberPanel.setText(counterNumber.toString());
-        //TODO: update room
+
+        Iterator<Pair> pairIterator = this.controller.roomButtonPressed(counterNumber, roomNum);
+
+        int numberOfRooms = 0;
+        while (pairIterator.hasNext() && numberOfRooms < 3) {
+            System.out.println(pairIterator.next());
+            numberOfRooms++;
+
+        }
+
+        System.out.println("+++++");
     }
 
     private void resetCounterAndRooms() {
@@ -127,5 +137,6 @@ public class MainFrame extends JFrame {
     private void decrementCounter() {
         Integer counterNumber = this.controller.decrement();
         numberPanel.setText(counterNumber.toString());
+        //TODO: room state back to previous
     }
 }

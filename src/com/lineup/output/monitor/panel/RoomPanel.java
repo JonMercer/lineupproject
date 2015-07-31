@@ -62,9 +62,6 @@ public class RoomPanel extends JPanel {
         constraints.gridx = 1;
         constraints.gridy = 2;
         add(lowRight, constraints);
-
-
-
     }
 
 

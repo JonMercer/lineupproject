@@ -1,5 +1,7 @@
 package controller;
 
+import java.util.Iterator;
+
 /**
  * Controls the button logic.
  * Created by Jon Mercer on 15-07-25.
@@ -34,5 +36,5 @@ public interface Controller {
     * */
     public Integer print();
 
-    int getNextRoomSectionToPopulate();
+    Iterator<Pair> roomButtonPressed(int screenNum, int roomNum);
 }
