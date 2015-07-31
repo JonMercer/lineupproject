@@ -109,7 +109,9 @@ public class MainFrame extends JFrame {
     private void printTicket() {
         Integer printNumber = controller.print();
 
-        System.out.println("Printed number is: " + printNumber.toString());
+        buttonPanel.setPrintLabel("Print:" + printNumber.toString());
+
+//        System.out.println("Printed number is: " + printNumber.toString());
     }
 
     private void updateCounterAndRoom(int roomNum) {
@@ -160,6 +162,8 @@ public class MainFrame extends JFrame {
         roomPanel.setFirstRow("", "");
         roomPanel.setSecondRow("", "");
         roomPanel.setThirdRow("", "");
+
+        buttonPanel.setPrintLabel("P:");
     }
 
     private void decrementCounter() {

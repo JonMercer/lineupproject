@@ -16,6 +16,8 @@ import java.awt.event.ActionListener;
  */
 public class ButtonPanel extends JPanel {
 
+    JLabel printLabel = new JLabel("P:");
+
     //Creating list of events, becasue multiple events are queued?
     private EventListenerList listenerList = new EventListenerList();
 
@@ -142,6 +144,10 @@ public class ButtonPanel extends JPanel {
         constraints.gridy = 1;
         add(room6, constraints);
 
+        constraints.gridx = 0;
+        constraints.gridy = 1;
+        add(printLabel, constraints);
+
 
 
 
@@ -175,5 +181,9 @@ public class ButtonPanel extends JPanel {
 
     public void removeButtonListener(ButtonListener listener) {
         listenerList.remove(ButtonListener.class, listener);
+    }
+
+    public void setPrintLabel(String text) {
+        printLabel.setText(text);
     }
 }
