@@ -1,6 +1,6 @@
 package output.monitor.eventHandler;
 
-import enums.AllButtons;
+import output.monitor.AllButtons;
 import output.monitor.frame.MainFrame;
 
 import java.awt.event.KeyAdapter;

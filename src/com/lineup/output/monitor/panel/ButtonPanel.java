@@ -1,6 +1,6 @@
 package output.monitor.panel;
 
-import enums.AllButtons;
+import output.monitor.AllButtons;
 import output.monitor.eventHandler.ButtonEvent;
 import output.monitor.eventHandler.ButtonListener;
 
@@ -10,7 +10,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-import static enums.UIElementNumbers.PANEL_BUTTON_HEIGHT;
+import static output.monitor.UIElementNumbers.PANEL_BUTTON_HEIGHT;
 
 /**
  * Bottom panel that will only show up on toggle. For debugging purposes.
@@ -20,7 +20,7 @@ public class ButtonPanel extends JPanel {
 
     JLabel printLabel = new JLabel("P:");
 
-    //Creating list of events, becasue multiple events are queued?
+    //Creating list of events, because multiple events are queued?
     private EventListenerList listenerList = new EventListenerList();
 
     public ButtonPanel() {
@@ -28,7 +28,7 @@ public class ButtonPanel extends JPanel {
         size.height = PANEL_BUTTON_HEIGHT.getInt();
         setPreferredSize(size);
 
-        setBorder(BorderFactory.createTitledBorder("Button Panel"));
+        setBorder(BorderFactory.createLineBorder(Color.black));
 
         JButton downButton = new JButton(AllButtons.DOWN.getLabelName());
         JButton room1 = new JButton(AllButtons.R1.getLabelName());
@@ -149,9 +149,6 @@ public class ButtonPanel extends JPanel {
         constraints.gridy = 1;
         add(printLabel, constraints);
 
-
-
-
 //        //old way to actions
 //        room1.addActionListener(new ActionListener(){
 //
@@ -180,9 +177,9 @@ public class ButtonPanel extends JPanel {
 
     }
 
-    public void removeButtonListener(ButtonListener listener) {
-        listenerList.remove(ButtonListener.class, listener);
-    }
+//    public void removeButtonListener(ButtonListener listener) {
+//        listenerList.remove(ButtonListener.class, listener);
+//    }
 
     public void setPrintLabel(String text) {
         printLabel.setText(text);

@@ -5,7 +5,7 @@ package output.monitor.frame;
 
 import controller.Controller;
 import controller.Pair;
-import enums.AllButtons;
+import output.monitor.AllButtons;
 import output.monitor.eventHandler.ButtonEvent;
 import output.monitor.eventHandler.ButtonListener;
 import output.monitor.eventHandler.KeyMonitor;
@@ -17,52 +17,45 @@ import javax.swing.*;
 import java.awt.*;
 
 /**
- * Our custom version of JFrame.
- * We can add components here
- * - layout manager: design layouts that reflow depending on screen state
- * - swing components: base class for swing components (pieces of UI including keybinding)
- * , and content pane
+ * Holds panels that make up the UI.
  * Created by Jon Mercer on 15-07-23.
  */
 public class MainFrame extends JFrame {
 
-    private static final boolean BUTTON_PANEL_ON = true;
+    private static final boolean BUTTON_PANEL_ON = false;
     private RoomPanel roomPanel = new RoomPanel();
     private NumberPanel numberPanel = new NumberPanel();
     private ButtonPanel buttonPanel = new ButtonPanel();
 
     private Controller controller;
 
+
+    /**
+     * @param title goes on top of the window
+     * @param controller the logic that generates numbers to be placed on screen
+     */
     public MainFrame(String title, final Controller controller) {
+
         super(title);
-
-        KeyMonitor monitor = new KeyMonitor(this);
-        setFocusable(true);
-        addKeyListener(monitor);
-
         this.controller = controller;
 
-        // Set layout manager. BorderLayout = 5 panes, one in centre
-        setLayout(new BorderLayout());
-
-        //The opposite of addactionListener
-        //Anonymous class
+        //The opposite of addActionListener. Monitors when UI button is pressed
         buttonPanel.addButtonListener(new ButtonListener() {
             public void buttonEventOccurred(ButtonEvent event) {
                 filterWhatButtonWasPressed(event.getButton());
             }
         });
+        //Monitors when keyboard button is pressed
+        KeyMonitor monitor = new KeyMonitor(this);
+        addKeyListener(monitor);
 
-        //add swing components to content pane.
+        setFocusable(true);
+        setLayout(new BorderLayout());
+
         Container container = getContentPane();
-
         container.add(roomPanel, BorderLayout.CENTER);
         container.add(numberPanel, BorderLayout.WEST);
-
-        if (BUTTON_PANEL_ON) {
-            container.add(buttonPanel, BorderLayout.SOUTH);
-        }
-
+        if (BUTTON_PANEL_ON) container.add(buttonPanel, BorderLayout.SOUTH);
     }
 
     public void filterWhatButtonWasPressed(AllButtons buttonLabel) {
@@ -107,8 +100,7 @@ public class MainFrame extends JFrame {
                 updateCounterAndRoom(10);
                 break;
             default:
-                System.err.println("Button Does not Exist");
-
+                System.err.println("ERROR: Button Does not Exist");
         }
     }
 
@@ -116,8 +108,8 @@ public class MainFrame extends JFrame {
         Integer printNumber = controller.print();
 
         buttonPanel.setPrintLabel("Print:" + printNumber.toString());
+        numberPanel.setPrintLabel("Print:" + printNumber.toString());
 
-//        System.out.println("Printed number is: " + printNumber.toString());
     }
 
     private void updateCounterAndRoom(int roomNum) {
@@ -131,6 +123,7 @@ public class MainFrame extends JFrame {
 
     private void setRoomText(Object[] pairs) {
 
+        //TODO: refactor room rows as list
         if(pairs.length == 0) {
             roomPanel.setFirstRow("", "");
             roomPanel.setSecondRow("", "");

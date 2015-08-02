@@ -1,4 +1,4 @@
-package enums;
+package output.monitor;
 
 /**
  * Created by Jon Mercer on 15-08-02.

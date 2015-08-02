@@ -1,6 +1,6 @@
 package output.monitor.eventHandler;
 
-import enums.AllButtons;
+import output.monitor.AllButtons;
 
 import java.util.EventObject;
 

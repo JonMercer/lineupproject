@@ -4,8 +4,8 @@ import output.monitor.frame.MainFrame;
 
 import javax.swing.*;
 
-import static enums.UIElementNumbers.WINDOW_HEIGHT;
-import static enums.UIElementNumbers.WINDOW_WIDTH;
+import static output.monitor.UIElementNumbers.WINDOW_HEIGHT;
+import static output.monitor.UIElementNumbers.WINDOW_WIDTH;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
@@ -21,7 +21,6 @@ public class Main {
     private Controller controller = new ControllerImpl();
 
     private Main() {
-        System.out.println("hello world");
         generateFrame();
     }
 
