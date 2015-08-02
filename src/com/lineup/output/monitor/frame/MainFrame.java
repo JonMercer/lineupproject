@@ -5,7 +5,7 @@ package output.monitor.frame;
 
 import controller.Controller;
 import controller.Pair;
-import output.monitor.AllButtons;
+import enums.AllButtons;
 import output.monitor.eventHandler.ButtonEvent;
 import output.monitor.eventHandler.ButtonListener;
 import output.monitor.eventHandler.KeyMonitor;
@@ -15,10 +15,6 @@ import output.monitor.panel.RoomPanel;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
-import java.util.Iterator;
-
-import static output.monitor.AllButtons.*;
 
 /**
  * Our custom version of JFrame.

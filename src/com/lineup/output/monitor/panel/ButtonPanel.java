@@ -1,6 +1,6 @@
 package output.monitor.panel;
 
-import output.monitor.AllButtons;
+import enums.AllButtons;
 import output.monitor.eventHandler.ButtonEvent;
 import output.monitor.eventHandler.ButtonListener;
 
@@ -9,6 +9,8 @@ import javax.swing.event.EventListenerList;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+
+import static enums.UIElementNumbers.PANEL_BUTTON_HEIGHT;
 
 /**
  * Bottom panel that will only show up on toggle. For debugging purposes.
@@ -23,8 +25,7 @@ public class ButtonPanel extends JPanel {
 
     public ButtonPanel() {
         Dimension size = getPreferredSize();
-        size.width = 250;
-        size.height = 60;
+        size.height = PANEL_BUTTON_HEIGHT.getInt();
         setPreferredSize(size);
 
         setBorder(BorderFactory.createTitledBorder("Button Panel"));

@@ -4,6 +4,8 @@ import output.monitor.frame.MainFrame;
 
 import javax.swing.*;
 
+import static enums.UIElementNumbers.WINDOW_HEIGHT;
+import static enums.UIElementNumbers.WINDOW_WIDTH;
 import static javax.swing.JFrame.EXIT_ON_CLOSE;
 
 /**
@@ -15,8 +17,6 @@ import static javax.swing.JFrame.EXIT_ON_CLOSE;
 public class Main {
 
     private final String NAME_OF_APP = "LineUp";
-    private final int WINDOW_WIDTH = 500;
-    private final int WINDOW_HEIGHT = 500;
 
     private Controller controller = new ControllerImpl();
 
@@ -46,7 +46,7 @@ public class Main {
                 frame.setVisible(true);
                 //closes application properly
                 frame.setDefaultCloseOperation(EXIT_ON_CLOSE);
-                frame.setSize(WINDOW_WIDTH, WINDOW_HEIGHT);
+                frame.setSize(WINDOW_WIDTH.getInt(), WINDOW_HEIGHT.getInt());
             }
         });
     }

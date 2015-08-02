@@ -56,7 +56,7 @@ public class Controller {
         }
 
         if(currentNumber.get() == LOWEST_NUMBER) {
-            //output.outputNumber(currentNumber.get());
+            //output.outputNumber(currentNumber.getInt());
         } else {
             int decrementedNumber = currentNumber.decrementAndGet();
             //output.outputNumber(decrementedNumber);

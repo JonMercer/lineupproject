@@ -1,5 +1,7 @@
 package output.monitor.panel;
 
+import enums.UIElementNumbers;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -14,7 +16,7 @@ public class NumberPanel extends JPanel {
 
     public NumberPanel() {
         Dimension size = getPreferredSize();
-        size.width = 250;
+        size.width = UIElementNumbers.PANEL_NUMBER_WIDTH.getInt();
         setPreferredSize(size);
 
         setBorder(BorderFactory.createTitledBorder("NumberLabel"));

@@ -1,5 +1,7 @@
 package output.monitor.panel;
 
+import enums.UIElementNumbers;
+
 import javax.swing.*;
 import java.awt.*;
 
@@ -9,7 +11,9 @@ import java.awt.*;
  */
 public class RoomPanel extends JPanel {
 
-    private static final int FONT_SIZE = 50;
+    private static final int FONT_SIZE = UIElementNumbers.PANEL_ROOM_FONT.getInt();
+
+
 
     JLabel topLeft = new JLabel();
     JLabel topRight = new JLabel();
@@ -20,7 +24,7 @@ public class RoomPanel extends JPanel {
 
     public RoomPanel() {
         Dimension size = getPreferredSize();
-        size.width = 250;
+        size.width = UIElementNumbers.PANEL_ROOM_WIDTH.getInt();
         setPreferredSize(size);
 
         setBorder(BorderFactory.createTitledBorder("RoomPanel"));

@@ -1,4 +1,4 @@
-package output.monitor;
+package enums;
 
 /**
  * Enum of button labels.
