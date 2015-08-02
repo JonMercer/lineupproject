@@ -30,6 +30,7 @@ import static output.monitor.AllButtons.*;
  */
 public class MainFrame extends JFrame {
 
+    private static final boolean BUTTON_PANEL_ON = true;
     private RoomPanel roomPanel = new RoomPanel();
     private NumberPanel numberPanel = new NumberPanel();
     private ButtonPanel buttonPanel = new ButtonPanel();
@@ -61,7 +62,11 @@ public class MainFrame extends JFrame {
 
         container.add(roomPanel, BorderLayout.CENTER);
         container.add(numberPanel, BorderLayout.WEST);
-        container.add(buttonPanel, BorderLayout.SOUTH);
+
+        if (BUTTON_PANEL_ON) {
+            container.add(buttonPanel, BorderLayout.SOUTH);
+        }
+
     }
 
     public void filterWhatButtonWasPressed(AllButtons buttonLabel) {
