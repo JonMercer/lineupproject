@@ -8,6 +8,7 @@ import controller.Pair;
 import output.monitor.AllButtons;
 import output.monitor.eventHandler.ButtonEvent;
 import output.monitor.eventHandler.ButtonListener;
+import output.monitor.eventHandler.KeyMonitor;
 import output.monitor.panel.ButtonPanel;
 import output.monitor.panel.NumberPanel;
 import output.monitor.panel.RoomPanel;
@@ -38,6 +39,10 @@ public class MainFrame extends JFrame {
     public MainFrame(String title, final Controller controller) {
         super(title);
 
+        KeyMonitor monitor = new KeyMonitor(this);
+        setFocusable(true);
+        addKeyListener(monitor);
+
         this.controller = controller;
 
         // Set layout manager. BorderLayout = 5 panes, one in centre
@@ -59,7 +64,7 @@ public class MainFrame extends JFrame {
         container.add(buttonPanel, BorderLayout.SOUTH);
     }
 
-    private void filterWhatButtonWasPressed(AllButtons buttonLabel) {
+    public void filterWhatButtonWasPressed(AllButtons buttonLabel) {
         switch (buttonLabel) {
             case DOWN:
                 decrementCounter();
