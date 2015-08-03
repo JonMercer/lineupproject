@@ -14,9 +14,9 @@ public class State {
     private final int qNum;
     private final Deque<Pair> deque;
 
-    public State(int pNum, int qNum, Deque<Pair> deque) {
-        this.pNum = pNum;
-        this.qNum = qNum;
+    public State(int screenNumber, int printNumber, Deque<Pair> deque) {
+        this.pNum = screenNumber;
+        this.qNum = printNumber;
         this.deque = deque;
     }
 

@@ -1,6 +1,7 @@
 package controller;
 
 import persistence.Persistence;
+import persistence.State;
 
 import java.util.ArrayDeque;
 import java.util.Deque;
@@ -71,6 +72,8 @@ public class ControllerImpl implements Controller {
         while(arrayDeque.size() != 0) {
             arrayDeque.remove();
         }
+
+        saveState();
         return screenNumber.get();
     }
 
@@ -80,6 +83,8 @@ public class ControllerImpl implements Controller {
             printNumber.set(INITIAL_NUMBER);
 
         }
+
+        saveState();
         return printNumber.incrementAndGet();
     }
 
@@ -104,6 +109,7 @@ public class ControllerImpl implements Controller {
             arrayDeque.removeLast();
         }
 
+        saveState();
         return arrayDeque.toArray();
     }
 
@@ -112,7 +118,16 @@ public class ControllerImpl implements Controller {
         if (arrayDeque.size() > 0) {
             arrayDeque.pop();
         }
+
+        saveState();
         return arrayDeque.toArray();
+    }
+
+
+    private void saveState() {
+        //TODO: investigate possible concurrency bug;
+        State state = new State(screenNumber.get(), printNumber.get(), arrayDeque);
+        persistence.saveState(state);
     }
 
 }
