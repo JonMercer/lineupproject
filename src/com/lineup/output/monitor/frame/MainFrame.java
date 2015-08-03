@@ -33,8 +33,9 @@ public class MainFrame extends JFrame {
     /**
      * @param title goes on top of the window
      * @param controller the logic that generates numbers to be placed on screen
+     * @param restore find out if system crashed/rebooted with info in it.
      */
-    public MainFrame(String title, final Controller controller) {
+    public MainFrame(String title, final Controller controller, boolean restore) {
 
         super(title);
         this.controller = controller;
@@ -56,6 +57,21 @@ public class MainFrame extends JFrame {
         container.add(roomPanel, BorderLayout.CENTER);
         container.add(numberPanel, BorderLayout.WEST);
         if (BUTTON_PANEL_ON) container.add(buttonPanel, BorderLayout.SOUTH);
+
+        if (restore) {
+            showCounter();
+            showRooms();
+        }
+    }
+
+    private void showCounter() {
+        Integer counterNumber = this.controller.getScreenNumber();
+        numberPanel.setText(counterNumber.toString());
+    }
+
+    private void showRooms() {
+        Object[] pairs = (Object[]) this.controller.getRoomsData();
+        setRoomText(pairs);
     }
 
     public void filterWhatButtonWasPressed(AllButtons buttonLabel) {
@@ -171,6 +187,10 @@ public class MainFrame extends JFrame {
 
         Object[] pairs = this.controller.decrementButtonPressed();
         setRoomText(pairs);
+
+    }
+
+    public void restore() {
 
     }
 }

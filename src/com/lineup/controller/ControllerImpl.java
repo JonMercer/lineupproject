@@ -73,6 +73,16 @@ public class ControllerImpl implements Controller {
     }
 
     @Override
+    public Integer getScreenNumber() {
+        return screenNumber.get();
+    }
+
+    @Override
+    public Object[] getRoomsData() {
+        return arrayDeque.toArray();
+    }
+
+    @Override
     public Object[] roomButtonPressed(int screenNum, int roomNum) {
 
         Pair<Integer, Integer> roomPair = new Pair<Integer, Integer>(screenNum, roomNum);
