@@ -123,6 +123,16 @@ public class ControllerImpl implements Controller {
         return arrayDeque.toArray();
     }
 
+    @Override
+    public void loadState() {
+        reset();
+        State state = persistence.loadState();
+        screenNumber.set(state.getScreenNum());
+        printNumber.set(state.getPrintNum());
+        arrayDeque.addAll(state.getDeque());
+
+    }
+
 
     private void saveState() {
         //TODO: investigate possible concurrency bug;

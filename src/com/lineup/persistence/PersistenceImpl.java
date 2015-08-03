@@ -35,6 +35,9 @@ public class PersistenceImpl implements Persistence {
         } else {
             String line = readFromFile();
             //TODO: figure out a better solution than line length
+            if (line == null) {
+                return false;
+            }
             if (line.length() < 10) {
                 return false;
             } else {

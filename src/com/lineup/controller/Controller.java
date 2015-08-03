@@ -51,4 +51,6 @@ public interface Controller {
     Object[] roomButtonPressed(int screenNum, int roomNum);
 
     Object[] decrementButtonPressed();
+
+    void loadState();
 }

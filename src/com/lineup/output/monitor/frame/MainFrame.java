@@ -59,6 +59,7 @@ public class MainFrame extends JFrame {
         if (BUTTON_PANEL_ON) container.add(buttonPanel, BorderLayout.SOUTH);
 
         if (restore) {
+            controller.loadState();
             showCounter();
             showRooms();
         }
