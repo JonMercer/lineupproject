@@ -20,8 +20,8 @@ public class Main {
 
     private final String NAME_OF_APP = "LineUp";
 
-    private Controller controller = new ControllerImpl();
     private Persistence persistence = new PersistenceImpl();
+    private Controller controller = new ControllerImpl(persistence);
 
     private Main() {
         generateFrame();
@@ -42,7 +42,7 @@ public class Main {
             @Override
             public void run() {
                 //Main window of application. Only one per swing program
-                JFrame frame = new MainFrame(NAME_OF_APP, controller, persistence.accidentalReeboot());
+                JFrame frame = new MainFrame(NAME_OF_APP, controller, persistence.accidentalReboot());
 
                 //sets the frame to be visible
                 frame.setVisible(true);

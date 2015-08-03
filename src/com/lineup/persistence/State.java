@@ -20,11 +20,11 @@ public class State {
         this.deque = deque;
     }
 
-    public int getpNum() {
+    public int getPrintNum() {
         return pNum;
     }
 
-    public int getqNum() {
+    public int getScreenNum() {
         return qNum;
     }
 

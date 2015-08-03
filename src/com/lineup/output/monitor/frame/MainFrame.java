@@ -70,7 +70,7 @@ public class MainFrame extends JFrame {
     }
 
     private void showRooms() {
-        Object[] pairs = (Object[]) this.controller.getRoomsData();
+        Object[] pairs = this.controller.getRoomsData();
         setRoomText(pairs);
     }
 

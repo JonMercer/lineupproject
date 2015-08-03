@@ -9,7 +9,7 @@ import java.util.Deque;
  */
 public interface Persistence {
 
-    public boolean accidentalReeboot();
+    public boolean accidentalReboot();
 
     public void saveState(State state);
 

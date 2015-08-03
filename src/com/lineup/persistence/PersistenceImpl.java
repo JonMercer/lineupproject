@@ -5,7 +5,7 @@ package persistence;
  */
 public class PersistenceImpl implements Persistence {
     @Override
-    public boolean accidentalReeboot() {
+    public boolean accidentalReboot() {
         return false;
     }
 

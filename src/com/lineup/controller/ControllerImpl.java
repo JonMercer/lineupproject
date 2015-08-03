@@ -1,5 +1,7 @@
 package controller;
 
+import persistence.Persistence;
+
 import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.concurrent.atomic.AtomicInteger;
@@ -17,12 +19,21 @@ public class ControllerImpl implements Controller {
 
     private final AtomicInteger screenNumber;
     private final AtomicInteger printNumber;
-    private final Deque<Pair> arrayDeque = new ArrayDeque<Pair>();
+    private final Deque<Pair> arrayDeque;
+    private final Persistence persistence;
 
-    public ControllerImpl() {
+    public ControllerImpl(Persistence persistence) {
+
         screenNumber = new AtomicInteger(INITIAL_NUMBER);
         printNumber = new AtomicInteger(INITIAL_NUMBER);
-//        fillDequeWithZeros();
+        arrayDeque = new ArrayDeque<Pair>();
+
+        this.persistence = persistence;
+        if(this.persistence.accidentalReboot()) {
+            screenNumber.set(persistence.loadState().getScreenNum());
+            printNumber.set(persistence.loadState().getPrintNum());
+            arrayDeque.addAll(persistence.loadState().getDeque());
+        }
     }
 
     @Override
